@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sentinela - Monitoramento de Veículos em Manaus</title>
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
+    <link rel="stylesheet" href="mcss.css">
+    <link rel="stylesheet" href="moni.css">
+    <link rel="stylesheet" href="img.css">
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="header-content">
+            <img src="img/logo-1468.png" alt="Logo Sentinela" class="logo"> <!-- Logo -->
+        </div>
+        <nav>
+            <ul>
+                <li><a id="admin-button" href="monitoring.php"><i class="fas fa-user-cog"></i> Admin</a></li>
+                <li><a id="dashboard-button" href="dashboard.php"><i class="fas fa-chart-line"></i> Dashboard</a></li>
+            </ul>
+        </nav>        
+    </header>
+
+    <!-- Mapa -->
+    <div id="map"></div>
+    <div id="map-controls">
+        <button id="zoom-in" class="map-btn">+</button>
+        <button id="zoom-out" class="map-btn">−</button>
+    </div>
+    <div id="right-icons">
+        <button class="icon-btn"><i class="fas fa-user"></i></button>
+        <button class="icon-btn"><i class="fas fa-map-marker-alt"></i></button>
+        <button class="icon-btn"><i class="fas fa-route"></i></button>
+        <button class="icon-btn"><i class="fas fa-car"></i></button>
+        <button class="icon-btn"><i class="fas fa-tools"></i></button>
+        <button class="icon-btn"><i class="fas fa-bell"></i></button>
+        <button class="icon-btn"><i class="fas fa-search"></i></button>
+        <button class="icon-btn"><i class="fas fa-cogs"></i></button>
+        <button class="icon-btn"><i class="fas fa-power-off"></i></button>
+    </div>
+    
+
+    <!-- Barra lateral -->
+    <div id="sidebar">
+        <h2>Informações dos Veículos</h2>
+        <div class="toggle-container">
+            <button id="toggle-sidebar" class="pull-left">→</button>
+            <input type="checkbox" id="select-all" class="vehicle-checkbox">
+            <label for="select-all">Desagrupar</label>
+            <button id="toggle-list">−</button>
+        </div>
+        <ul id="vehicle-list">
+            <li>
+                <input type="checkbox" class="vehicle-checkbox">
+                <div class="status-indicator status-active"></div>
+                <div>
+                    <strong>* NON-4907</strong>
+                    UNO AZUL 11-01-2025 06:28:09 0 km/h
+                </div>
+            </li>
+            <li>
+                <input type="checkbox" class="vehicle-checkbox">
+                <div class="status-indicator status-ack"></div>
+                <div>
+                    <strong>* XYZ-1234</strong>
+                    FORD RANGER 11-01-2025 06:30:15 5 km/h
+                </div>
+            </li>
+            <li>
+                <input type="checkbox" class="vehicle-checkbox">
+                <div class="status-indicator status-inactive"></div>
+                <div>
+                    <strong>* LMN-3456</strong>
+                    CHEVROLET ONIX 11-01-2025 06:32:10 0 km/h
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Informações adicionais -->
+    <div id="top-info">
+        <button id="toggle-info" class="pull-tab">↑</button>
+        <h2>Outras Informações</h2>
+        <div class="info-horizontal">
+            <div class="info-section">
+                <p><strong>*PHY-2F36 JEEP SPORT BRANCO</strong></p>
+                <p>Endereço: Life Ponta Negra, Santo Agostinho, Manaus, Região Norte, 69000-000, Brasil</p>
+            </div>
+            <div class="info-section">
+                <p>Horário: 12-01-2025 10:05:29</p>
+                <p>Duração da parada: 22h 25min 50s</p>
+                <p>Condutor: -</p>
+            </div>
+            <div class="info-section">
+                <h3>Sensores</h3>
+                <p>Ignição: Desligado</p>
+                <p>Bloqueio: Desligado</p>
+                <p>Horas do motor: 1474.06 h</p>
+                <p>Odômetro: 5306614 KM</p>
+                <p>Velocidade: 0 km/h</p>
+            </div>
+            <div class="info-section">
+                <h3>Eventos recentes</h3>
+            </div>
+            <div class="info-section">
+                <h3>Localização</h3>
+                <p>Cidade: Manaus</p>
+                <p>Estado: Amazonas</p>
+                <p>País: Brasil</p>
+                <p>Endereço: Life Ponta Negra, Santo Agostinho, Manaus, Região Norte, 69000-000, Brasil</p>
+            </div>
+            <div class="info-section">
+                <h3>Comando GPRS</h3>
+                <p>Ativar alarme</p>
+                <p>Bloquear motor</p>
+                <p>Desarmar alarme</p>
+                <p>Desbloquear motor</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+     <script src="zoom.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
+    <script src="moni.js"></script>
+</body>
+</html>

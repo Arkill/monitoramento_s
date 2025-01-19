@@ -1,0 +1,355 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: #1f1f1f;
+    color: #ffffff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.0rem;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li {
+    display: inline;
+}
+
+nav ul li a {
+    background-color: #00bcd4;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1.0rem;
+    text-decoration: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    margin-right: 20px;
+}
+
+nav ul li a:hover {
+    background-color: #0097a7;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+nav ul li a i {
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+#map {
+    height: 100vh;
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    margin-top: 60px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* Sidebar */
+#sidebar {
+    background-color: #1f1f1f;
+    padding: 35px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    width: 250px;
+    position: fixed;
+    top: 80px;
+    left: -300px;
+    height: calc(100vh - 40px);
+    overflow-y: auto;
+    transition: left 0.3s ease;
+    z-index: 1002;
+}
+
+#sidebar h2 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    text-align: left;
+    color: #00bcd4;
+    left: 50px;
+}
+
+#sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: left; /* Alinhamento à esquerda */
+}
+
+#sidebar ul li {
+    background-color: #333;
+    color: #fff;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #555;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Alinhamento à esquerda */
+    position: relative;
+    font-size: 0.7rem;
+    margin-left: 0; /* Remove a margem esquerda negativa */
+    margin-right: 15px;
+    left: -20px;
+}
+
+#sidebar.show-partially {
+    left: 0px; /* Posição intermediária */
+}
+
+#sidebar.hidden {
+    transform: translateX(-50%);
+    left: -90px;
+}
+
+#toggle-sidebar {
+    position: absolute;
+    right: 10px;
+    top: 60%;
+    transform: translateY(-50%);
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#toggle-sidebar:hover {
+    background-color: #555;
+    transform: translateY(-50%) scale(1.1);
+}
+
+#toggle-sidebar {
+    position: absolute;
+    right: 10px; /* Ajuste conforme necessário */
+    top: 50%; 
+    transform: translateY(-50%);
+}
+
+.toggle-container {
+    align-items: center;
+    justify-content: space-between;
+}
+
+#toggle-list {
+    background-color: #00bcd4; /* Cor de fundo */
+    color: #ffffff; /* Cor do texto */
+    border: none; /* Remover borda */
+    border-radius: 5px; /* Bordas arredondadas */
+    padding: 5px 11px; /* Espaçamento interno */
+    cursor: pointer; /* Cursor interativo */
+    font-size: 1rem; /* Tamanho da fonte */
+    margin-top: -5px;
+    margin-left: 0px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Efeito de transição */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.3); /* Sombra */
+}
+
+#toggle-list:hover {
+    background-color: #0097a7; /* Cor ao passar o mouse */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4); /* Sombra ao passar o mouse */
+}
+
+#toggle-list:active {
+    background-color: #00796b; /* Cor ao clicar */
+    box-shadow: inset 0px 2px 4px rgba(0, 0, 0, 0.5); /* Sombra ao clicar */
+}
+
+.status-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    animation: blink 1s infinite;
+}
+
+.status-active {
+    background-color: #28a745;
+    box-shadow: 0 0 8px rgba(40, 167, 69, 0.8);
+}
+
+.status-ack {
+    background-color: #ffc107;
+    animation: blink 1s infinite;
+    box-shadow: 0 0 8px rgba(255, 193, 7, 0.8);
+}
+
+.status-inactive {
+    background-color: #dc3545;
+    animation: blink 1s infinite alternate;
+    box-shadow: 0 0 8px rgba(220, 53, 69, 0.8);
+}
+
+/* Checkbox */
+.vehicle-checkbox {
+    appearance: none;
+    width: 30px;
+    height: 20px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    background-color: #1f1f1f;
+    cursor: pointer;
+    transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    margin-right: 10px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.vehicle-checkbox:checked {
+    background-color: #00bcd4;
+    border-color: #00bcd4;
+    box-shadow: 0 0 5px rgba(0, 188, 212, 0.8);
+    position: relative;
+}
+
+.vehicle-checkbox:checked::after {
+    content: '✔';
+    color: white;
+    font-size: 10px;
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#select-all {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+label[for="select-all"] {
+    font-size: 1rem;
+    color: #00bcd4;
+    cursor: pointer;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+#left-info {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 30%;
+    height: 30vh; /* Defina altura conforme necessário */
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+    overflow-y: auto; /* Scroll vertical caso o conteúdo ultrapasse a altura */
+}
+
+#bottom-info {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo inicial da aba */
+#top-info {
+    position: fixed;
+    bottom: 0; /* Alinhado à parte inferior da tela */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 97%;
+    height: 300px;
+    background-color: rgba(0, 0, 0, 0.9);
+    border-radius: 40px 40px 0 0; /* Arredondamento superior igual ao botão */
+    padding: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    overflow-y: hidden;
+    z-index: 2000;
+    transition: height 0.3s ease, bottom 0.3s ease;
+}
+
+/* Estado colapsado */
+#top-info.collapsed {
+    height: 30px; /* Aba colapsada */
+}
+
+/* Botão "puxador" */
+.pull-tab {
+    position: absolute;
+    top: -0px; /* Fora da aba */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5%; /* Botão circular */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    z-index: 3000;
+}
+
+/* Hover do botão */
+.pull-tab:hover {
+    background-color: #0056b3;
+}
+
+/* Ajuste visual para o botão parecer parte da aba */
+#top-info::before {
+    content: '';
+    position: absolute;
+    top: -20px; /* Alinha com o botão */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px; /* Mesma largura do botão */
+    height: 40px; /* Mesma altura do botão */
+    background-color: rgba(0, 0, 0, 0.9); /* Cor da aba */
+    border-radius: 50%; /* Forma circular */
+    z-index: -1; /* Coloca atrás do botão */
+}

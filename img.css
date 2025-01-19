@@ -1,0 +1,90 @@
+.logoo {
+    display: block; 
+    margin: 0 auto 40px;
+    max-width: 170px; 
+    height: auto; 
+}
+
+#top-info {
+    border-top: 1px solid #ddd; /* Linha separadora */
+    padding: 30px
+}
+
+.pull-tab {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 5px 10px;
+    background-color: #007bff; /* Cor de fundo do botão */
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.info-horizontal {
+    display: flex; /* Exibe os itens em linha */
+    gap: 20px; /* Espaço entre os itens */
+    overflow-x: auto; /* Rolagem horizontal para telas menores */
+}
+
+.info-section:last-child {
+    border-right: none; /* Remove a linha da última seção */
+}
+
+#right-icons {
+    position: absolute;
+    top: 50%; /* Centraliza verticalmente */
+    right: 10px; /* Alinha ao lado direito */
+    transform: translateY(-50%); /* Ajusta o alinhamento vertical */
+    display: flex;
+    flex-direction: column; /* Organiza os ícones em uma coluna */
+    gap: 8px; /* Reduzi o espaçamento entre os botões */
+    z-index: 1000; /* Mantém os ícones sobre o restante da interface */
+}
+
+.icon-btn {
+    background-color: #007bff; /* Cor de fundo azul */
+    border: none;
+    border-radius: 5px; /* Bordas arredondadas */
+    width: 35px; /* Largura reduzida */
+    height: 35px; /* Altura reduzida */
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white; /* Cor do ícone */
+    font-size: 16px; /* Tamanho do ícone reduzido */
+}
+
+.icon-btn:hover {
+    background-color: #0056b3; /* Azul mais escuro ao passar o mouse */
+}
+
+#map-controls {
+    position: absolute;
+    top: 80px; /* Distância do topo */
+    right: 10px; /* Distância da direita */
+    display: flex;
+    flex-direction: column; /* Botões empilhados */
+    gap: 5px; /* Espaço entre os botões */
+    z-index: 1000; /* Para aparecer sobre o mapa */
+}
+
+.map-btn {
+    width: 30px; /* Largura reduzida */
+    height: 30px; /* Altura reduzida */
+    background-color: #007bff; /* Azul */
+    top: 70px;
+    border: none;
+    border-radius: 5px;
+    color: white; /* Cor do texto */
+    font-size: 16px; /* Tamanho do texto reduzido */
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.map-btn:hover {
+    background-color: #0056b3; /* Azul mais escuro ao passar o mouse */
+}

@@ -1,0 +1,196 @@
+/* Estilo geral para o body no modo escuro */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #121212; /* Fundo escuro */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('assets/images/login-bg-dark.jpg'); /* Imagem de fundo para o modo escuro */
+    background-size: cover;
+    background-position: center;
+    color: #e0e0e0; /* Texto claro */
+}
+
+/* Estilo do container no modo escuro */
+#container {
+    width: 100%;
+    max-width: 960px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(18, 18, 18, 0.85); /* Fundo escuro translúcido */
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+}
+
+/* Estilo da seção no modo escuro */
+section {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 960px;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+/* Estilo do artigo no modo escuro */
+article {
+    width: 50%;
+    padding: 30px;
+    background-color: #1f1f1f; /* Cor de fundo escura */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+article h1 {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+article p {
+    font-size: 18px;
+}
+
+article .btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background-color: #00bcf5;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Efeito de hover do botão de login */
+article .btn:hover {
+    background-color: #007acc;
+    transform: translateY(-3px);
+}
+
+/* Estilo do aside no modo escuro */
+aside {
+    width: 50%;
+    padding: 30px;
+    background-color: #121212; /* Fundo escuro */
+}
+
+aside h2 {
+    font-size: 36px;
+    color: #e0e0e0; /* Texto claro */
+    margin-bottom: 20px;
+}
+
+aside p {
+    font-size: 16px;
+    color: #bbb; /* Cor de texto suave */
+    margin-bottom: 30px;
+}
+
+/* Estilo dos inputs no modo escuro */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    font-size: 16px;
+    border: 1px solid #555; /* Bordas escuras */
+    border-radius: 8px;
+    box-sizing: border-box;
+    transition: all 0.3s;
+    background-color: #333; /* Fundo escuro dos inputs */
+    color: #e0e0e0; /* Texto claro nos inputs */
+}
+
+/* Estilo de foco nos inputs no modo escuro */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #00bcf5;
+    box-shadow: 0 0 5px rgba(0, 188, 245, 0.5);
+}
+
+/* Estilo do botão de submit no modo escuro */
+button[type="submit"] {
+    width: 100%;
+    padding: 12px;
+    background-color: #00bcf5;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+/* Hover do botão de submit */
+button[type="submit"]:hover {
+    background-color: #007acc;
+}
+
+/* Estilo do link para "Esqueceu a senha?" no modo escuro */
+.forgot-password-link {
+    display: block;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 15px;
+    color: #00bcf5;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.forgot-password-link:hover {
+    text-decoration: underline;
+    color: #007acc;
+}
+
+/* Estilo de mensagem de erro no modo escuro */
+.error-message {
+    background-color: #f44336;
+    color: white;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Estilo de mensagem de sucesso no modo escuro */
+.success-message {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* Responsividade no modo escuro */
+@media screen and (max-width: 768px) {
+    #container {
+        flex-direction: column;
+    }
+
+    article, aside {
+        width: 100%;
+    }
+
+    article h1 {
+        font-size: 36px;
+    }
+
+    aside h2 {
+        font-size: 28px;
+    }
+}
